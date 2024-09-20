@@ -1,0 +1,26 @@
+Måste vara med
+y minst 1 sida
+y Navbar
+y Innehåll
+y Footer
+y Responsiv (minst 360px)
+y Kontrast (tillgänglighet)
+
+
+G
+y En media query
+y Använd både clas och id selectors
+y Flexbox eller grid i lämpliga ställen
+y HTML5 strukturelement
+y Använd title, descritpion och h1-h6 på lämpligt sätt
+Validerar utan Fel
+
+VG
+y Semantisk kod (t ex inte bara div, använd inte br)
+y Enhetligt formaterad kod
+
+y Namnge klasser, id och filer på ett beskrivande sätt
+
+
+Egna mål
+y Använd variabler för färger

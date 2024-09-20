@@ -1,0 +1,243 @@
+/* Global attributes */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Colors */
+:root {
+  --textcolor: #2a2a2a;
+  --bgcolor: #f0f0f0;
+}
+
+/* Main */
+main {
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+  background-color: var(--bgcolor);
+  color: var(--textcolor);
+}
+
+/* Navbar */
+.navbar-section {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.651);
+  backdrop-filter: blur(2px);
+  position: fixed;
+  width: 100vw;
+  padding: 1.3rem 1rem;
+  align-items: center;
+  z-index: 1;
+  text-align: center;
+}
+.navbar {
+  display: inline-flex;
+  list-style: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--textcolor);
+  padding: 0 0.3rem;
+}
+
+/* Logo styling */
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--textcolor);
+  font-size: 1.5rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* Förfytta med (nav-height)px top när man navigerar med navbaren, annars
+täcks sektionen av navbaren eftersom den har "position:fixed" */
+#about-section,
+#artist-section {
+  scroll-margin-top: 85px;
+}
+
+/* Hero */
+.hero-section {
+  display: flex;
+  background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      var(--bgcolor)
+    ),
+    url(img/hero.webp);
+  background-color: var(--bgcolor);
+  height: 60vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+}
+
+/* About */
+.about-section {
+  text-align: center;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+.about-section h1 {
+  padding-bottom: 2rem;
+  font-weight: normal;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* Artist section */
+.artist-section h2 {
+  padding: 3rem;
+  text-align: center;
+  font-weight: normal;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* Artist containers */
+.artist-container {
+  margin: 1rem 0;
+}
+.artist-container img {
+  object-fit: cover;
+  height: 40vh;
+  width: 100%;
+  padding: 1rem;
+}
+.artist-container h3 {
+  text-align: center;
+  margin: 3rem 1rem 2rem 1rem;
+  font-size: 1.6rem;
+  font-weight: normal;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.artist-container p {
+  margin: 1rem 1.5rem 5rem 1.5rem;
+  text-align: left;
+}
+
+/* Contact */
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+.contact-section h2 {
+  width: 100vw;
+  padding: 3rem;
+  text-align: center;
+  font-weight: normal;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.contact-section div {
+  border-width: 100vw;
+  background-color: rgba(255, 255, 255, 0.596);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+}
+.contact-section h3 {
+  font-weight: normal;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.contact-section a {
+  text-decoration: none;
+  color: var(--textcolor);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--textcolor);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  height: 3rem;
+  color: var(--bgcolor);
+}
+
+/* Desktop css */
+@media screen and (min-width: 980px) {
+  /* add padding to navbar */
+  .navbar-section {
+    padding: 1.5rem 7vw;
+  }
+  /* add a max width to sections */
+  .artist-container {
+    padding: 0 20vw;
+    margin: 5rem 0;
+  }
+
+  .about-section {
+    width: 50vw;
+    padding: 5rem;
+    margin: auto;
+  }
+
+  .contact-section {
+    flex-direction: row;
+    padding: 0 20vw;
+  }
+  .contact-section div {
+    flex-grow: 1;
+  }
+
+  /* add grid layout to artist */
+  .artist-image-left {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas:
+      "bild         rubrik"
+      "bild         beskrivning";
+    margin-right: 6vw;
+  }
+  .artist-image-right {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas:
+      "rubrik       bild"
+      "beskrivning  bild";
+    margin-left: 6vw;
+  }
+
+  /* Defining grid areas */
+  .artist-container img {
+    grid-area: bild;
+    height: 30vh;
+    padding: 0;
+  }
+  .artist-container h3 {
+    grid-area: rubrik;
+    text-align: left;
+    margin: 2rem 3rem 0rem 3rem;
+  }
+  .artist-container p {
+    grid-area: beskrivning;
+    text-align: left;
+    margin: 1rem 3rem 2rem 3rem;
+  }
+
+  /* Various */
+  .hero-section {
+    height: 70vh;
+  }
+
+  /* navbar on hover effect */
+  .navbar a:hover {
+    border-left: solid 5px black;
+    transition: 0.2s;
+  }
+}
